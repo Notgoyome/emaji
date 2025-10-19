@@ -1,0 +1,30 @@
+extends Node
+
+enum Type {
+    # Elemental types
+    FIRE = 4,
+    WATER = 5,
+    EARTH = 6,
+    AIR = 7,
+}
+
+var type_names = {
+    Type.FIRE: "Fire",
+    Type.WATER: "Water",
+    Type.EARTH: "Earth",
+    Type.AIR: "Air",
+}
+
+var listemajis = {
+}
+
+var fusion_chart_basic = {
+    "🔥💧": "💨",
+    "🔥🌍": "🌋",
+    "💧🌍": "🌱",
+    "💨🔥": "⚡️",
+    "💨💧": "🌪️",
+    "🌍💨": "🏔️"
+}
+
+# ALIVE FUNC

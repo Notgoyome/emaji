@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EmajiData" load_steps=2 format=3 uid="uid://bhjldieeu2ouh"]
+
+[ext_resource type="Script" uid="uid://w62x0fvpvabp" path="res://emajis/datas/emaji_data.gd" id="1_k1w6f"]
+
+[resource]
+script = ExtResource("1_k1w6f")
+emaji = "🔥"
+_name = "fire"
+_defense = 5.0
+_attack = 25.0
+_speed = 10.0
+_health = 100.0
+_type = 3
+_rarity = 1
+metadata/_custom_type_script = "uid://w62x0fvpvabp"

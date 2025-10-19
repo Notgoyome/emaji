@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0v0wa8kbf5ns"]
+
+[ext_resource type="Script" uid="uid://ckj7xm0nqcf65" path="res://globals/emoji_global.gd" id="1_6alfn"]
+
+[node name="EmojiGlobal" type="Node2D"]
+script = ExtResource("1_6alfn")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

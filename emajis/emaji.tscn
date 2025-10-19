@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgvdji8aslog6"]
+
+[ext_resource type="Script" uid="uid://dsox1nxc830qh" path="res://emaji.gd" id="1_e8fea"]
+[ext_resource type="Resource" uid="uid://cn343nntpbb04" path="res://emajis/datas/water.tres" id="2_e8fea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e8fea"]
+radius = 50.1597
+
+[node name="Emaji" type="Node2D"]
+script = ExtResource("1_e8fea")
+emaji_data = ExtResource("2_e8fea")
+
+[node name="Display" type="Node2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="Display"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -11.5
+offset_right = 9.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "💧"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Pick" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick"]
+shape = SubResource("CircleShape2D_e8fea")
+
+[node name="EmajiMergeComponent" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EmajiMergeComponent"]
+shape = SubResource("CircleShape2D_e8fea")
+
+[connection signal="input_event" from="Pick" to="." method="_on_area_2d_input_event"]
+[connection signal="area_entered" from="EmajiMergeComponent" to="." method="_on_emaji_merge_component_area_entered"]
+[connection signal="area_exited" from="EmajiMergeComponent" to="." method="_on_emaji_merge_component_area_exited"]

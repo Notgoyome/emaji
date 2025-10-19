@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq4emslqacwre"]
+
+[ext_resource type="PackedScene" uid="uid://cgvdji8aslog6" path="res://emajis/emaji.tscn" id="1_ig7tw"]
+[ext_resource type="Resource" uid="uid://bv2uaxntjdj72" path="res://emajis/datas/earth.tres" id="2_0xm2m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Emaji" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(472, 222)
+
+[node name="Emaji2" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(663, 316)
+emaji_data = ExtResource("2_0xm2m")
