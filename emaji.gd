@@ -7,9 +7,9 @@ var held: bool = false
 
 @export var emaji_data: EmajiData:
 	set(new_value):
-		print("Setting emaji data to: ", new_value)
 		emaji_data = new_value
 		if %Label:
+			print("Updating label text to: ", new_value.emaji)
 			%Label.text = new_value.emaji
 		# label.text = new_value.emaji
 
@@ -29,16 +29,17 @@ func _on_area_2d_input_event(viewport:Node, event:InputEvent, shape_idx:int):
 		held = true
 	if not event.pressed:
 		held = false
+		handle_release()
 		if GameGlobal.held_emaji == self:
 			GameGlobal.held_emaji = null
-		handle_release()
 
 func handle_release():
+	if GameGlobal.held_emaji != self:
+		return
 	if _emaji_to_merge == null:
 		return
 	print("Merging ", emaji_data.getemaji_name(), " with ", _emaji_to_merge.emaji_data.getemaji_name())
 	EmojiGlobal.merge_emajis(emaji_data, _emaji_to_merge.emaji_data)
-	var emaji_data: EmajiData = EmajiData.new()
 
 func _on_emaji_merge_component_area_entered(area):
 	if area.get_parent() == self:
